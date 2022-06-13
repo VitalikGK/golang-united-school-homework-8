@@ -97,7 +97,7 @@ func Perform(args Arguments, writer io.Writer) error {
 
 		defer f.Close()
 
-		n, err := f.Write([]byte(args["item"]))
+		n, err := f.Write([]byte("[" + args["item"] + "]"))
 		if err != nil {
 			//panic(err)
 			return err
