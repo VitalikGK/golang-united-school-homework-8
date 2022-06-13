@@ -74,7 +74,7 @@ func Perform(args Arguments, writer io.Writer) error {
 		if err != nil {
 			fmt.Println("Operation not allowed! %w", err)
 			//panic(err)
-			return err
+			//	return err
 		}
 
 		err = json.Unmarshal([]byte("["+args["item"]+"]"), &s0)
