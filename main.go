@@ -207,10 +207,12 @@ func Perform(args Arguments, writer io.Writer) error {
 		//		var s0 []User
 
 		err = json.Unmarshal(f0, &s)
+		fmt.Println("s = ", s)
+		fmt.Println("f0=", f0)
 		if err != nil {
 			fmt.Println("Operation not allowed! %w", err)
 			//panic(err)
-			return err
+			//	return err
 		}
 
 		c := 0
@@ -264,19 +266,19 @@ func Perform(args Arguments, writer io.Writer) error {
 			}
 			f.Write([]byte("]"))
 
-			f1, err := ioutil.ReadFile(args["fileName"])
-			if err != nil {
-				return err
-			}
-			var s2 []User
-			//		var s0 []User
+			// f1, err := ioutil.ReadFile(args["fileName"])
+			// if err != nil {
+			// 	return err
+			// }
+			// var s2 []User
+			// //		var s0 []User
 
-			err = json.Unmarshal(f1, &s2)
-			if err != nil {
-				fmt.Println("Operation not allowed! %w", err)
-				//panic(err)
-				return err
-			}
+			// err = json.Unmarshal(f1, &s2)
+			// if err != nil {
+			// 	fmt.Println("Operation not allowed! %w", err)
+			// 	//panic(err)
+			// 	return err
+			// }
 
 		}
 
