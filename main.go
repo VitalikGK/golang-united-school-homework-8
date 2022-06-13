@@ -237,7 +237,7 @@ func Perform(args Arguments, writer io.Writer) error {
 
 			err := errors.New("Item with id " + args["id"] + " not found")
 			writer.Write([]byte(err.Error()))
-			//return nil
+			return nil
 		} else {
 			//defer os.Remove(args["fileName"])
 
