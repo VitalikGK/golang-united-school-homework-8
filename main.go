@@ -207,8 +207,8 @@ func Perform(args Arguments, writer io.Writer) error {
 		//		var s0 []User
 
 		err = json.Unmarshal(f0, &s)
-		fmt.Println("s = ", s)
-		fmt.Println("f0=", f0)
+		// fmt.Println("s = ", s)
+		// fmt.Println("f0=", f0)
 		if err != nil {
 			fmt.Println("Operation not allowed! %w", err)
 			//panic(err)
