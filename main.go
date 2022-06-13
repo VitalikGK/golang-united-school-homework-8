@@ -241,9 +241,9 @@ func Perform(args Arguments, writer io.Writer) error {
 		} else {
 			//defer os.Remove(args["fileName"])
 
-			_, err = f.Seek(0, io.SeekStart)
+			f.Seek(0, io.SeekStart)
 
-			err = f.Truncate(0)
+			f.Truncate(0)
 
 			var s0 []byte
 
