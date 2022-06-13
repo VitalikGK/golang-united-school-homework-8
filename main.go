@@ -81,7 +81,7 @@ func Perform(args Arguments, writer io.Writer) error {
 		if err != nil {
 			fmt.Println("Operation not allowed! %w", err)
 			//panic(err)
-			return err
+			//	return err
 		}
 		fmt.Println(" typeof item = ", reflect.TypeOf(args["item"]))
 		for i, v := range s {
