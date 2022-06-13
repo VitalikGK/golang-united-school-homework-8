@@ -26,24 +26,6 @@ var flagVal2 string
 var flagVal3 string
 
 func Perform(args Arguments, writer io.Writer) error {
-	fmt.Println("Arguments = ", args)
-	fmt.Println("Arguments id = ", args["id"])
-	fmt.Println("Arguments operation = ", args["operation"])
-	//fmt.Println("Arguments type item = ", reflect.TypeOf(a["item"]))
-	fmt.Println("Arguments  item = ", args["item"])
-	fmt.Println("Arguments  fileName = ", args["fileName"])
-
-	// user := User{}
-	// s := []byte(flagVal2)
-	// fmt.Println("s = ", s)
-
-	// if err := json.Unmarshal(s, &user); err != nil {
-	// 	log.Fatal(err)
-	// }
-
-	// fmt.Println("user age : ", user.Age)
-	// fmt.Println("user email : ", user.Email)
-	// fmt.Println("user id : ", user.Id)
 
 	if args["operation"] == "" {
 		err := errors.New("-operation flag has to be specified")
@@ -103,10 +85,7 @@ func Perform(args Arguments, writer io.Writer) error {
 		}
 		fmt.Println(" typeof item = ", reflect.TypeOf(args["item"]))
 		for i, v := range s {
-			// fmt.Println("s(i) = ", s[i])
 			fmt.Println("v = ", v)
-			// fmt.Println(" (i) = ", i)
-			// fmt.Println(" s(i).id = ", s[i].Id)
 
 			if s[i].Id == s0[0].Id {
 				err := errors.New("Item with id " + strconv.Itoa(i+1) + " already exists")
@@ -161,10 +140,7 @@ func Perform(args Arguments, writer io.Writer) error {
 		}
 
 		for i, v := range s {
-			// fmt.Println("s(i) = ", s[i])
 			fmt.Println("v = ", v)
-			// fmt.Println(" (i) = ", i)
-			// fmt.Println(" s(i).id = ", s[i].Id)
 			var s0 []byte
 			if s[i].Id == args["id"] {
 				s0, err = json.Marshal(s[i])
@@ -207,20 +183,12 @@ func Perform(args Arguments, writer io.Writer) error {
 		//		var s0 []User
 
 		err = json.Unmarshal(f0, &s)
-		// fmt.Println("s = ", s)
-		// fmt.Println("f0=", f0)
 		if err != nil {
 			fmt.Println("Operation not allowed! %w", err)
-			//panic(err)
-			//	return err
 		}
 
 		c := 0
 		for i := 0; i < len(s); i++ {
-			// fmt.Println("s(i) = ", s[i])
-			//fmt.Println("v = ", v)
-			// fmt.Println(" (i) = ", i)
-			// fmt.Println(" s(i).id = ", s[i].Id)
 
 			if s[i].Id == args["id"] {
 
@@ -228,9 +196,6 @@ func Perform(args Arguments, writer io.Writer) error {
 				copy(s[i:], s[i+1:])
 				s = s[:len(s)-1]
 				i--
-				//err := errors.New("Item with id " + strconv.Itoa(i+1) + " delete")
-				//writer.Write([]byte("Item with id " + strconv.Itoa(i+1) + " delete"))
-				//return nil //err
 
 			}
 		}
@@ -241,7 +206,6 @@ func Perform(args Arguments, writer io.Writer) error {
 			return nil
 
 		} else {
-			//defer os.Remove(args["fileName"])
 
 			f.Seek(0, io.SeekStart)
 
@@ -265,20 +229,6 @@ func Perform(args Arguments, writer io.Writer) error {
 
 			}
 			f.Write([]byte("]"))
-
-			// f1, err := ioutil.ReadFile(args["fileName"])
-			// if err != nil {
-			// 	return err
-			// }
-			// var s2 []User
-			// //		var s0 []User
-
-			// err = json.Unmarshal(f1, &s2)
-			// if err != nil {
-			// 	fmt.Println("Operation not allowed! %w", err)
-			// 	//panic(err)
-			// 	return err
-			// }
 
 		}
 
